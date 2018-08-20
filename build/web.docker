@@ -1,4 +1,4 @@
 FROM nginx:1.15
 
     ADD ./build/nginx.conf /etc/nginx/conf.d/default.conf
-    WORKDIR /var/www/dockerApp
+    WORKDIR /var/www/justiva
