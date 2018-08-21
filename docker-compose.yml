@@ -3,8 +3,7 @@ services:
     web:
         container_name: webserver
         build:
-            context: ./
-            dockerfile: ./build/web.docker
+            context: ./build/nginx
         volumes:
             - ./../:/var/www/justiva
         ports:
