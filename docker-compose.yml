@@ -13,8 +13,7 @@ services:
     app:
         container_name: appserver
         build:
-            context: ./
-            dockerfile: ./build/app.docker
+            context: ./build/app
         volumes:
             - ./../:/var/www/justiva
         links:
