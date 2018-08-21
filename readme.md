@@ -18,7 +18,7 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
         # cd docker
 3. Set your config in file docker-compose.yml
 
-    A. Change in 'environment' your database name, user and pass.
+4. Change in 'environment' your database name, user and pass.
     - "DB_MYSQL_PORT=3306"
     - "DB_MYSQL_HOST=database"
     - "DB_MYSQL_DATABASE=justiva_mysql"
@@ -30,7 +30,7 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
     >
     - "MONGO_INITDB_DATABASE=justiva"
     
-    B. If you have changed the WORKDIR, you must change all docker files.
+5. If you have changed the WORKDIR, you must change all docker files.
 
 4. Start docker-compose.yml
 
