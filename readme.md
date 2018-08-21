@@ -1,16 +1,54 @@
-## About Docker + Laravel
+## Laravel in Docker
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+With this article you’ll learn how to prepare a Docker image of a Laravel application, push it to the registry, and use Docker in Continuous Delivery.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
+- [GIT](https://git-scm.com/downloads).
+- [Docker >= 17.12](https://www.docker.com/products/docker/).
+## Installation
+    
+1. Install a new Laravel project or clone your project from github
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+        # git clone https://dev-andrew@bitbucket.org/justivaru/justiva.ru.git
+        # cd myProject
+        
+2. Clone repository [Laravel in Docker](https://bitbucket.org/dev-andrew/docker-laravel/src/master/)
+
+        # git clone https://dev-andrew@bitbucket.org/dev-andrew/docker-laravel.git docker
+        # cd docker
+3. Set your config in file docker-compose.yml
+
+    A. Change in 'environment' your database name, user and pass.
+    - "DB_MYSQL_PORT=3306"
+    - "DB_MYSQL_HOST=database"
+    - "DB_MYSQL_DATABASE=justiva_mysql"
+    - "DB_MYSQL_USERNAME=root"
+    - "DB_MYSQL_PASSWORD=secret"
+    >
+    - "MYSQL_ROOT_PASSWORD=secret"
+    - "MYSQL_DATABASE=justiva_mysql"
+    >
+    - "MONGO_INITDB_DATABASE=justiva"
+    
+    B. If you have changed the WORKDIR, you must change all docker files.
+
+4. Start docker-compose.yml
+
+        # dokcer-compose up -d
+        
+5. Kill all services
+
+        # docker-compose kill
+            
+
+## Donations
+
+> Help keeping the project development going donating a little. 
+> Thanks in advance.
+
+Donate directly via [Paypal](https://www.paypal.me/AndrewNdl)
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/AndrewNdl) 
 
 ## License
 
