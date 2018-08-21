@@ -25,8 +25,9 @@ RUN docker-php-ext-install iconv mbstring \
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
 
+COPY /uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 RUN echo "file_uploads = On\n" \
-         "memory_limit = 500M\n" \
+         "memory_limit = 2000M\n" \
          "upload_max_filesize = 500M\n" \
          "post_max_size = 500M\n" \
          "max_execution_time = 600\n" \
