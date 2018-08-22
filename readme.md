@@ -7,18 +7,16 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
 - [Docker >= 17.12](https://www.docker.com/products/docker/).
 ## Installation
     
-1. Install a new Laravel project or clone your project from github
+1. Install a new Laravel project or clone your project from git
 
-        # git clone https://dev-andrew@bitbucket.org/justivaru/justiva.ru.git
         # cd myProject
         
 2. Clone repository [Laravel in Docker](https://bitbucket.org/dev-andrew/docker-laravel/src/master/)
 
-        # git clone https://dev-andrew@bitbucket.org/dev-andrew/docker-laravel.git docker
+        # git clone https://github.com/NdlAndrey/laravelDocker.git docker
         # cd docker
-3. Set your config in file docker-compose.yml
-
-4. Change in 'environment' your database name, user and pass.
+        
+4. Set your config in file docker-compose.yml. Change in 'environment' your database name, user and pass.
     - "DB_MYSQL_PORT=3306"
     - "DB_MYSQL_HOST=database"
     - "DB_MYSQL_DATABASE=justiva_mysql"
@@ -30,13 +28,18 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
     >
     - "MONGO_INITDB_DATABASE=justiva"
     
-5. If you have changed the WORKDIR, you must change all docker files.
+4. If you have changed the WORKDIR, you must change all docker files.
 
-4. Start docker-compose.yml
+5. Start docker-compose.yml
 
         # dokcer-compose up -d
         
-5. Kill all services
+6. Commands connect content and run php
+
+        # docker-compose exec app php artisan migrate // run laravel artisan
+        # docker-compose exec app bash // contect in ssh
+        
+6. Kill all services
 
         # docker-compose kill
             

@@ -12,18 +12,23 @@ services:
             - app
     app:
         container_name: appserver
+#        domainname: domain.local
         build:
             context: ./build/app
         volumes:
             - ./../:/var/www/justiva
-        links:
-            - database
         environment:
             - "DB_MYSQL_PORT=3306"
             - "DB_MYSQL_HOST=database"
             - "DB_MYSQL_DATABASE=justiva_mysql"
             - "DB_MYSQL_USERNAME=root"
             - "DB_MYSQL_PASSWORD=secret"
+        links:
+            - mongodb
+            - database
+        depends_on:
+            - mongodb
+
     database:
         container_name: database
         image: mysql:5.7
