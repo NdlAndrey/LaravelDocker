@@ -16,7 +16,7 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
         # git clone https://github.com/NdlAndrey/laravelDocker.git docker
         # cd docker
         
-4. Set your config in file docker-compose.yml. Change in 'environment' your database name, user and pass.
+4. Set your config in file docker-compose.yml. Change in `environment` your database name, user and pass.
     - "DB_MYSQL_PORT=3306"
     - "DB_MYSQL_HOST=database"
     - "DB_MYSQL_DATABASE=justiva_mysql"
