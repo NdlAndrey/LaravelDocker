@@ -45,7 +45,8 @@ services:
         environment:
             - "MONGO_INITDB_DATABASE=justiva"
         volumes:
-            - ./../database/migrations/mongo:/database/migrations/mongo
+#            - ./../database/migrations/mongo:/database/migrations/mongo
+            - ./../storage/app/public/dump:/database/dump
         ports:
             - "27017:27017"
 #        command: --storageEngine wiredTiger
