@@ -36,10 +36,16 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
         
 6. Commands connect content and run php
 
-        # docker-compose exec app php artisan migrate // run laravel artisan
         # docker-compose exec app bash // contect in ssh
-        
-6. Kill all services
+  
+7. Restore database for mysql and mongodb
+ 
+        # docker-compose exec app php artisan migrate // run laravel artisan
+        # docker-compose exec app php artisan db:download // download dump 
+        # docker-compose exec app php artisan db:restore mysql // restore dump for mysql
+        # docker-compose exec mongodb mongorestore --gzip --archive=database/dump/dump_mongo.gz --db justiva --drop // restore dump for monodb
+      
+8. Kill all services
 
         # docker-compose kill
             
