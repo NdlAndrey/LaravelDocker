@@ -32,7 +32,7 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
 
 5. Start docker-compose.yml
 
-        # dokcer-compose up -d
+        # docker-compose up -d
         
 6. Commands connect content and run php
 
