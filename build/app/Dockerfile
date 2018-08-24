@@ -39,6 +39,9 @@ RUN docker-php-ext-install iconv mbstring \
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
 
+RUN apt-get update -y && \
+    apt-get install -y mongodb
+
 COPY /uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
 WORKDIR /var/www/justiva

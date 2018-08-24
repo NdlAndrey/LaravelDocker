@@ -4,37 +4,32 @@ services:
         container_name: webserver
         build:
             context: ./build/nginx
-        volumes:
-            - ./../:/var/www/justiva
+        volumes_from:
+            - app
         ports:
-            - "8080:80"
+            - 80:80
         links:
             - app
     app:
         container_name: appserver
-#        domainname: domain.local
         build:
             context: ./build/app
         volumes:
             - ./../:/var/www/justiva
-        environment:
-            - "DB_MYSQL_PORT=3306"
-            - "DB_MYSQL_HOST=database"
-            - "DB_MYSQL_DATABASE=justiva_mysql"
-            - "DB_MYSQL_USERNAME=root"
-            - "DB_MYSQL_PASSWORD=secret"
-        links:
-            - mongodb
-            - database
-        depends_on:
-            - mongodb
+    #        links:
+    #            - mysql
+    #            - mongodb
+    #        depends_on:
+    #            - mongodb
 
-    database:
-        container_name: database
+    mysql:
+        container_name: mysql
         image: mysql:5.7
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
-            - "MYSQL_DATABASE=justiva_mysql"
+            - "MYSQL_DATABASE=justiva_db"
+            - "MYSQL_USER=homestead"
+            - "MYSQL_PASSWORD=secret"
+            - "MYSQL_ROOT_PASSWORD=root_secret"
         ports:
             - "33061:3306"
 
@@ -45,8 +40,6 @@ services:
         environment:
             - "MONGO_INITDB_DATABASE=justiva"
         volumes:
-#            - ./../database/migrations/mongo:/database/migrations/mongo
             - ./../storage/app/public/dump:/database/dump
         ports:
             - "27017:27017"
-#        command: --storageEngine wiredTiger
