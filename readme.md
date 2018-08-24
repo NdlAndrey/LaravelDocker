@@ -25,7 +25,7 @@ With this article you’ll learn how to prepare a Docker image of a Laravel appl
                 
 4. For ```install``` or ```up``` docker use command 
     
-        dokcer-compose up -d
+        docker-compose up -d
         
     from docker folder (default ```docker```)
 
