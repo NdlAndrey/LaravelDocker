@@ -35,12 +35,18 @@ RUN docker-php-ext-install iconv mbstring \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install zip
 
+RUN docker-php-ext-install exif
+RUN docker-php-ext-configure exif \
+            --enable-exif
+
 # Install mongo
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
 
 RUN apt-get update -y && \
     apt-get install -y mongodb
+
+RUN composer global require laravel/envoy
 
 COPY /uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 
